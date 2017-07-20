@@ -79,6 +79,5 @@ C:\Git\LendOut\MyLibrary\bin\Newtonsoft.Json.xml
 C:\Git\LendOut\MyLibrary\bin\System.Net.Http.Formatting.xml
 C:\Git\LendOut\MyLibrary\bin\System.Web.Http.xml
 C:\Git\LendOut\MyLibrary\bin\System.Web.Http.WebHost.xml
-C:\Git\LendOut\MyLibrary\obj\Debug\MyLibrary.csprojResolveAssemblyReference.cache
 C:\Git\LendOut\MyLibrary\obj\Debug\MyLibrary.dll
 C:\Git\LendOut\MyLibrary\obj\Debug\MyLibrary.pdb
