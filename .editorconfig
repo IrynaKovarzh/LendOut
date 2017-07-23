@@ -1,0 +1,8 @@
+[*.html]
+indent_style = tab
+
+[*.cs]
+indent_style = tab
+
+[*.ts]
+indent_style = tab
