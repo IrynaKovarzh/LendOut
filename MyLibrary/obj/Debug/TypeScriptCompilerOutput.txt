@@ -1,3 +1,0 @@
-C:\git\LendOut\MyLibrary\Scripts\App\app.component.js
-C:\git\LendOut\MyLibrary\Scripts\App\app.module.js
-C:\git\LendOut\MyLibrary\Scripts\App\main.js
