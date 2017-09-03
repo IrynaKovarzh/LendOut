@@ -11,10 +11,12 @@ namespace MyLibrary.Models
 
         private IList<Book> data = new List<Book> {
             new Book {
-               Id = 1, Titel = "ABC-boken", Author = "Author ABC", AgeCategoryId = 1, CategoryId = 2},
+               Id = 1, Title = "Book1", Author = "Author ABC", AgeCategoryId = 1, CategoryId = 2},
              new Book {
-               Id = 2, Titel = "ABC2-boken", Author = "Author2 ABC", AgeCategoryId = 2, CategoryId = 2}
-        };
+               Id = 2, Title = "Book2", Author = "Author2 ABC", AgeCategoryId = 2, CategoryId = 2},
+			 new Book {
+			   Id = 3, Title = "Book3", Author = "Author3 ABC", AgeCategoryId = 3, CategoryId = 3}
+		};
         
         public IEnumerable<Book> GetAll(){            
                 return data;     // Values, without keys?l

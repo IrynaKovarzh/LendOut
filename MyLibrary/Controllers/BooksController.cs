@@ -1,6 +1,5 @@
 ﻿using System.Web.Http;
 using MyLibrary.Models;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Net;
 using System;
@@ -16,15 +15,17 @@ namespace MyLibrary.Controllers
             _catalogue = new BooksCatalogue();
         }
 
-        // GET: api/Books
-        public IEnumerable<Book> GetAllBooks()
-        {
-            return _catalogue.GetAll();
-        }
+		/*
+		// GET: api/Books
+		public IEnumerable<Book> GetAllBooks()
+		{
+			return _catalogue.GetAll();
+		}
+		*/
 
-        // GET: api/Books/id 
-        // IHttpActionResult
-        public Book GetBook(int id)
+		// GET: api/Books/id 
+		// IHttpActionResult
+		public Book GetBook(int id)
         {
             Book book = _catalogue.Get(id);
 

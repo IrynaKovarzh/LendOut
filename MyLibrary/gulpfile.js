@@ -10,6 +10,13 @@ gp_sourcemaps = require('gulp-sourcemaps'),
 gp_typescript = require('gulp-typescript'),
 gp_uglify = require('gulp-uglify');
 
+cachebust = require('gulp-cache-bust');
+
+//UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+uglify = require('gulp-uglify-es').default;
+// uglifyes = require('uglify-es');
+
+
 /// Define paths
 var srcPaths = {
 	app: ['Scripts/app/main.ts', 'Scripts/app/**/*.ts'],
@@ -33,7 +40,8 @@ var destPaths = {
 app: 'wwwroot/app/',
 js: 'wwwroot/js/',
 js_angular: 'wwwroot/js/@angular/',
-js_rxjs: 'wwwroot/js/rxjs/'
+js_rxjs: 'wwwroot/js/rxjs/',
+html: 'wwwroot'
 };
 
 // Compile, minify and create sourcemaps all TypeScript files and place
@@ -41,9 +49,10 @@ js_rxjs: 'wwwroot/js/rxjs/'
 gulp.task('app', ['app_clean'], function () {
 return gulp.src(srcPaths.app)
 .pipe(gp_sourcemaps.init())
-.pipe(gp_typescript(require('./tsconfig.json').compilerOptions))
-	//.pipe(gp_uglify().on('error', function (e) { console.log(e); }))   //!!!
-.pipe(gp_sourcemaps.write('/'))
+	.pipe(gp_typescript(require('./tsconfig.json').compilerOptions))
+	//.pipe(gp_uglify({ mangle: false }).on('error', function (e) { console.log(e); }))   //!!!
+	.pipe(uglify({ mangle: false }).on('error', function (e) { console.log(e); }))   //!!!
+	.pipe(gp_sourcemaps.write('/wwwroot/'))
 .pipe(gulp.dest(destPaths.app));
 });
 
@@ -76,6 +85,12 @@ gulp.task('watch', function () {
 gulp.task('cleanup', ['app_clean', 'js_clean']);
 // Define the default task so it will launch all other tasks
 gulp.task('default', ['app', 'js', 'watch']);
+
+gulp.src('/*.html')
+	    .pipe(cachebust({
+		        type:  'timestamp'
+	    }))
+	.pipe(gulp.dest(destPaths.html));
 
 /*
 var gutil = require('gulp-util');

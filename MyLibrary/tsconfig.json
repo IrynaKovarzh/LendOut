@@ -5,8 +5,8 @@
 		"experimentalDecorators": true,
 		"module": "system",
 		"moduleResolution": "node",
-		"noImplicitAny": false,
 		"noEmitOnError": false,
+		"noImplicitAny": false,
 		"removeComments": false,
 		"target": "es6"
 	},

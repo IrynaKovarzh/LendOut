@@ -1,19 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
 
 namespace MyLibrary.Models
 {
-    public class Book
+	[JsonObject(MemberSerialization.OptOut)]
+	public class Book
     {
-        [Key]
+		#region Constructor
+		public Book()
+		{
+		}
+		#endregion Constructor
+
+		[Key]
         public int Id { get; set; }
 
         [Required]
         [StringLength(245)]
-        public string Titel { get; set; }
+        public string Title { get; set; }
 
         [StringLength(50)]
         public string Author { get; set; }
