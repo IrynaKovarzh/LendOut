@@ -22,16 +22,14 @@ const appRoutes: Routes = [
 		path: "about",
 		component: AboutComponent
 	},
-	{
+	{  
 		path: "login",
 		component: LoginComponent
 	},
-
-	{
+	{		
 		path: "books/:id",
 		component: BookDetailComponent
-	},
-
+	},		
 	{
 		path: "books",
 		component: BooksComponent

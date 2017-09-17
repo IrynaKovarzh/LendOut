@@ -29,6 +29,16 @@ System.register(["@angular/core", "@angular/http", "rxjs/Observable"], function 
                     this.http = http;
                     this.baseUrl = "api/Books/"; // web api URL
                 }
+                // calls the [GET] /api/Books/id Web API method to retrieve the item with the given id.
+                get(id) {
+                    if (id == null) {
+                        throw new Error("id is required.");
+                    }
+                    var url = this.baseUrl + id;
+                    return this.http.get(url)
+                        .map(res => res.json())
+                        .catch(this.handleError);
+                }
                 // calls the [GET] /api/Books.
                 getAll() {
                     var url = this.baseUrl;
@@ -36,13 +46,33 @@ System.register(["@angular/core", "@angular/http", "rxjs/Observable"], function 
                         .map(response => response.json())
                         .catch(this.handleError);
                 }
-                // calls the [GET] /api/Books/id Web API method to retrieve the item with the given id.
-                get(id) {
-                    //if (id == null) { throw new Error("id is required."); }		
-                    var url = this.baseUrl + id;
-                    return this.http.get(url)
-                        .map(res => res.json())
+                // calls the [POST] /api/books/ Web API method to add a new item.
+                add(book) {
+                    var url = this.baseUrl;
+                    return this.http.post(url, JSON.stringify(book), this.getRequestOptions())
+                        .map(response => response.json())
                         .catch(this.handleError);
+                }
+                // calls the [DELETE] /api/books/{id} Web API method to delete the book with the given id.
+                delete(id) {
+                    var url = this.baseUrl + id;
+                    return this.http.delete(url)
+                        .catch(this.handleError);
+                }
+                // calls the [PUT] /api/books/{id} Web API method to update an existing book.
+                update(book) {
+                    var url = this.baseUrl + book.Id;
+                    return this.http.put(url, JSON.stringify(book), this.getRequestOptions())
+                        .map(response => response.json())
+                        .catch(this.handleError);
+                }
+                // returns a viable RequestOptions object to handle Json requests
+                getRequestOptions() {
+                    return new http_1.RequestOptions({
+                        headers: new http_1.Headers({
+                            "Content-Type": "application/json"
+                        })
+                    });
                 }
                 handleError(error) {
                     // output errors to the console.

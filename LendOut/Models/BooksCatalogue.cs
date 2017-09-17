@@ -5,7 +5,7 @@ namespace LendOut.Models
 {
 	public class BooksCatalogue
 	{
-		private static object _inlock = new object(); // ???
+     	private static object _inlock = new object(); // !...
 
 		private IList<Book> data = new List<Book> {
 			new Book {
@@ -18,7 +18,7 @@ namespace LendOut.Models
 
 		public IEnumerable<Book> GetAll()
 		{
-			return data;     // Values, without keys?l
+			return data;     // Values, without keys?
 		}
 
 		public Book Get(int id)

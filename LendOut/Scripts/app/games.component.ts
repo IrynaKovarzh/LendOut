@@ -8,6 +8,5 @@
 })
 
 export class GamesComponent {
-	title = "Games View";
-	//...
+	title = "Games View";	
 }

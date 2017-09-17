@@ -18,7 +18,6 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             AppComponent = class AppComponent {
                 constructor() {
                     this.title = 'Lend Out';
-                    //componentName: 'AppComponent'
                 }
             };
             AppComponent = __decorate([

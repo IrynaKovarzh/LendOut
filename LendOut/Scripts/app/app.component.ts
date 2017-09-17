@@ -14,6 +14,5 @@
 })
 
 export class AppComponent {
-	title = 'Lend Out';
-	//componentName: 'AppComponent'
+	title = 'Lend Out';	
 }

@@ -1,6 +1,6 @@
 ﻿/// <reference path="../../../lendout/scripts/app/home.component.ts" />
 import { Injectable } from "@angular/core";
-import { Http, Response } from "@angular/http";
+import { Http, Response, RequestOptions, Headers} from "@angular/http";
 import { Observable } from "rxjs/Observable";
 
 import { Book } from "./book";
@@ -30,7 +30,32 @@ export class BooksService {
 		//.map(res => res.json())
 	//	.map(response => response.json())
 		.catch(this.handleError);
+	}
+
+	// calls the [POST] /api/items/ Web API method to add a new item.
+	add(book: Book) {
+		var url = this.baseUrl;
+		return this.http.post(url, JSON.stringify(book),
+			this.getRequestOptions())
+			.map(response => response.json())
+			.catch(this.handleError);
+	}
+
+// calls the [DELETE] /api/books/{id} Web API method to delete the item with the given id.
+	delete(id: number) {
+	var url = this.baseUrl + id;
+	return this.http.delete(url)
+		.catch(this.handleError);
 }
+
+	// returns a viable RequestOptions object to handle Json requests
+	private getRequestOptions() {
+		return new RequestOptions({
+			headers: new Headers({
+				"Content-Type": "application/json"
+			})
+		});
+	}
 
 private handleError(error: Response) {
 	// output errors to the console.

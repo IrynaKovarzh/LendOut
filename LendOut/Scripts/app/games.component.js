@@ -18,7 +18,6 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             GamesComponent = class GamesComponent {
                 constructor() {
                     this.title = "Games View";
-                    //...
                 }
             };
             GamesComponent = __decorate([
